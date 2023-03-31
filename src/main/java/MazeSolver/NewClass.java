@@ -1,7 +1,9 @@
 package MazeSolver;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
@@ -24,11 +26,18 @@ public class NewClass extends JFrame {
 	
 	public ArrayList<Integer> path = new ArrayList<Integer>();
 	
+	/**
+	 * 
+	 */
 	public NewClass() {
 		
 		setTitle("Maze Solver");
 		setSize(600,550);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		Toolkit tc = getToolkit();
+        Dimension size = tc.getScreenSize();
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
 		DFS.searchpath(maze, 1, 1, path);
 //		System.out.println(path);
 	}
